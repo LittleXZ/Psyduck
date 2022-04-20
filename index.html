@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>可达鸭</title>
+</head>
+<body>
+    <div class="background">
+        <div class="question">
+            <div class="q1"></div>
+            <div class="q2"></div>
+        </div>
+        <div class="duck">
+            <div class="tou">
+                <div class="hair"></div>
+                <div class="head">
+                    <div class="eye lefteye"></div>
+                    <div class="eye righteye"></div>
+                    <div class="face leftface"></div>
+                    <div class="face rightface"></div>
+                </div>
+                <div class="wrapmouth">
+                    <div class="mouth m1"></div>
+                    <div class="mouth m2"></div>
+                    <div class="mouth m3"></div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="feet leftfeet"><div class="finger"></div></div>
+                <div class="feet rightfeet"><div class="finger"></div></div>
+            </div>
+            <div class="hand lefthand"><div class="finger"></div></div>
+            <div class="hand righthand"><div class="finger"></div></div>
+            <div class="ring"></div>
+            <div class="bowen"></div>
+            <div class="water"></div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    let style = document.createElement(`style`)
+    style.innerText = `.lefteye:before{transform: translateY(-10px);transition-delay: .5s;}.righteye:before{transform: translateY(-10px);transition-delay: .5s;}`
+    $(`.duck`).hover(
+        ()=>{
+            $(`.duck`).find(`.leftfeet`).css(`animation`,`leftshentui .3s infinite linear`)
+            $(`.duck`).find(`.rightfeet`).css(`animation`,`rightshentui .3s infinite linear`)
+            $(`.duck`).find(`.lefthand`).css(`transform`,`rotate(-160deg)`)
+            $(`.duck`).find(`.righthand`).css(`transform`,`rotate(160deg)`)
+            $(`.duck`).find(`.tou`).css(`transform`,`rotate(15deg)`).css(`transition-delay`,`.5s`)
+            $(`head`).append(style)
+        },
+        ()=>{
+            $(`.duck`).find(`.leftfeet`).css(`animation`,`leftshentui 2s infinite linear`)
+            $(`.duck`).find(`.rightfeet`).css(`animation`,`rightshentui 2s infinite linear`)
+            $(`.duck`).find(`.lefthand`).css(`transform`,`rotate(-60deg)`)
+            $(`.duck`).find(`.righthand`).css(`transform`,`rotate(70deg)`)
+            $(`.duck`).find(`.tou`).css(`transform`,`rotate(0deg)`).css(`transition-delay`,`0s`)
+            document.head.removeChild(document.head.lastChild)
+        }
+    )
+</script>
+</html>
